@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solo Leveling Tracker</title>
+    <style>
+        /* Small red break button in the top-right */
+        .break-container {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .break-button {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .break-options {
+            display: none;
+            position: absolute;
+            top: 30px;
+            right: 0;
+            background: #222;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        .break-options button {
+            display: block;
+            width: 100%;
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 5px;
+            margin: 3px 0;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+
+        .show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div> <!-- ✅ React will render the app here -->
+
+    <audio id="bg-music" autoplay loop>
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Small Break Button in Top-Right -->
+    <div class="break-container">
+        <button class="break-button" onclick="toggleBreakOptions()">☰</button>
+        <div class="break-options" id="breakOptions">
+            <button onclick="startBreak(60)">1 Hour Break</button>
+            <button onclick="startBreak(120)">2 Hour Break</button>
+            <button onclick="startBreak(180)">3 Hour Break</button>
+        </div>
+    </div>
+
+    <script>
+        function toggleBreakOptions() {
+            document.getElementById('breakOptions').classList.toggle('show');
+        }
+
+        function startBreak(duration) {
+            alert(`Break started for ${duration / 60} hours!`);
+            toggleBreakOptions();
+        }
+    </script>
+</body>
+</html>
